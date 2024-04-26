@@ -1,0 +1,41 @@
+
+1:
+index.html  
+index.css
+index.js
+
+2:
+  CSS
+body{
+    background: rgb(151, 1, 1);
+    color:aliceblue;    
+}
+
+    JS
+console.log( 'Hellooooooeu')
+
+    HTML
+<link rel="stylesheet" href="./index.css">
+<title>Introduccion JS</title>
+
+<h1> JS</h1>
+    
+<script src="./index.js"></script>
+
+
+3: 
+ ### FUNCIONES JS ###
+       index.js
+
+//Funcion tradicional
+function suma(a,b){ 
+    return a + b 
+} 
+
+//Funcion anonima FatArrow
+const suma= (a,b) =>{ 
+    return a + b 
+}
+
+//Funcion anonima FatArrow simplificada
+const suma= (a,b) => a + b  
