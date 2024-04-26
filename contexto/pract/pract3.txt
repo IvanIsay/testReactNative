@@ -1,0 +1,31 @@
+
+1: 
+ ### OBJETOS COMO PARAMETROS EN DOM ###
+
+ 
+const usuario= {
+    nombre:'ivan',
+    edad: 36,
+}
+
+function printInfo(usuario){
+    return '<h1>Hola usuario: '+ usuario.nombre + '</h1>'
+}
+
+console.log(printInfo(usuario))
+document.body.innerHTML= printInfo(usuario)
+
+
+2: 
+ ### DESTRUCTURING OBJETOS  ###
+
+ function printInfo(usuario){
+    const {nombre,edad}= usuario
+    console.log(nombre,edad)
+    return '<h1>Hola usuario: '+ nombre + '</h1>'
+
+}
+
+
+3:
+ ###   ### 
