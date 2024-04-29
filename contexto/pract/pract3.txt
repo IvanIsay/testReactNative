@@ -28,4 +28,106 @@ document.body.innerHTML= printInfo(usuario)
 
 
 3:
- ###   ### 
+ ### METODOS DE ARRAYS  ###
+
+const names = ['ivan','naomi','isay','reyna']
+
+
+for(let i=0; i <names.length; i++){
+    const elem= names[i];
+    console.log(elem)
+}
+
+
+//ForEach
+
+names.forEach(function (name){
+    console.log(name)
+})
+
+
+
+// Map: genera un nuevo arreglo, se utiliza para manipular el nuevo sin alterar el original
+
+const array2= names.map(function (name){
+    //console.log(name)
+    //return name
+    return `Hola ${name}`
+})
+
+console.log(names)
+console.log(array2)
+
+
+
+// FIND
+
+const encontrado = names.find(function (name){
+    if(name === 'isay'){
+        return name
+    }    
+})
+
+console.log(encontrado)
+
+
+
+// Filter: recorre el arreglo filtrando resultado a un nuevo
+   //name === 'isay'
+
+const encontrado = names.filter(function (name){
+    if(name !== 'isay'){
+        return name
+    }    
+})
+
+console.log(names)
+console.log(encontrado)
+
+
+
+//CONCAT
+const edades = [5,9,70,34]
+console.log(names.concat(edades))
+
+//Spread Operator:  propagar,desparramar
+
+console.log([...names,...edades])
+
+
+
+
+4:
+
+ ### EXPORT - IMPORT MODULOS  ###
+
+// calculadora.js //
+
+function suma(a,b){ return a + b }
+
+function resta(a,b){ return a - b }
+
+export {suma,resta};
+
+//es posible exportar funciones, array,obj etc....
+
+
+
+// index.js //
+import {suma,resta} from './calculadora.js'
+
+console.log(suma(10,55))
+console.log(resta(10,55)
+
+
+
+// index.html //
+<script type="module"  src="./index.js"></script>
+
+
+
+alternativa: 
+import * as calc from './calculadora.js'
+
+console.log(calc.suma(10,55))
+console.log(calc.resta(10,55))
