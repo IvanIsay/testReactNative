@@ -3,8 +3,23 @@
 
 2. Instalar Herramientas
 
+    Expo Go en tu cel
+
 3. 
 
  ### Primer APP ###
 
  Abrir terminal
+
+    $ yarn create expo
+    $ What is your app named? ... holaMundo
+    $ cd holaMundo
+    $ npx expo install react-native-web react-dom @expo/metro-runtime
+    $ yarn web
+    $ yarn start
+
+    App.js
+     <Text>Hola Mundo React Native!! :) </Text>
+
+     Probar en Web y en el Cel con el QR
+
