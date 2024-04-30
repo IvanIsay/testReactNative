@@ -1,0 +1,10 @@
+
+1. Explicar componentes
+
+2. Instalar Herramientas
+
+3. 
+
+ ### Primer APP ###
+
+ Abrir terminal
