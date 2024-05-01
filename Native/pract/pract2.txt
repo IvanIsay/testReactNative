@@ -1,0 +1,76 @@
+
+Componetes, Props, State
+
+1. Creamos un componete TEXTO debajo de import  
+    y lo mostramos en la vista
+
+    const Texto= ()=>{
+    return(
+        <Text>Hola Mundo React Native!! :) </Text>
+    )
+    }
+
+    <View style={styles.container}>
+        <Texto />
+      <StatusBar style="auto" />
+    </View>
+
+
+    EXPLICACION DE PROPS COMPONENTES
+
+2. Creamos un componete de texto Dinamico
+
+    const Texto= (props)=>{
+    const {contenido}= props
+    return(
+        <Text> {contenido} </Text>
+     )
+    }
+
+    <View style={styles.container}>
+        <Texto contenido= {'Hola ReactNative :)'} />
+        <Texto contenido= {'Componente 2 :)'} />
+        <Texto contenido= {'Soy otro componete de texto :)'} />
+      <StatusBar style="auto" />
+    </View>
+
+3. CHILDREN
+    contenido que podemos pasar de un componete Padre a hijo
+    incluso pasar componentes para combinar Componetes
+
+    const Texto= (props)=>{
+    const {children}= props
+    return(
+        <Text> {children} </Text>
+    )
+    }
+
+        <Texto>  Hola ReactNative :) </Texto >
+        <Texto> Componente 2   </Texto >
+
+
+4. STATE
+    estados o comportamientos que pueden ejecutar acciones
+    de un componente
+
+    a.
+    import React,{useState} from 'react';
+
+    b. 
+    const Texto= ()=>{
+    const [contenido, setContenido]= useState('Hola ReactNative :)')
+    const actualizaTexto= ()=>{ setContenido('State actulizado con exito') }
+    return(
+        <Text onPress={actualizaTexto}> {contenido} </Text>
+    )
+    }
+
+    c.
+    <View style={styles.container}>
+      <Texto/> 
+
+
+
+ Notas:
+    1. todos lo que debamos pasar a la vista debe ir dentro de componentes
+    2. <Text style={{fontSize:24}} onPress={actualizaTexto}> {contenido} </Text>
