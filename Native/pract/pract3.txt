@@ -1,0 +1,108 @@
+StyleSheets, Flex 
+
+1. StyleSheets
+Tiene una sintaxis parecida a CSS pero es TS de react
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  text:{
+    color:'red',
+    fontSize:28,
+  },
+});
+
+
+<Text style={styles.text} onPress={actualizaTexto}> {contenido} </Text>
+
+
+
+2. Flex 
+     las medidas de decidad de px son relativas al telefono
+
+a.
+const Texto= ({style})=>{
+
+b.
+<Text style={[styles.text,style]} onPress={actualizaTexto}> {contenido} </Text>
+
+c.
+text:{
+    color:'white',
+    fontSize:28,
+    height: 100,
+    width:100,
+  },
+  red:{
+    backgroundColor:'red',
+  },
+  green:{
+    backgroundColor:'green',
+  },
+  blue:{
+    backgroundColor:'blue',
+  },
+
+
+  d.
+    <Texto style={styles.red}/>
+    <Texto style={styles.green}/> 
+    <Texto style={styles.blue}/>  
+
+    Probar
+
+e.
+    El Flex tomara el 100% del contedor disponible
+
+  1+2+3=6  6=100% | 3=50%/ 3/6  | 2 =33.33% / 2/6 | 1=16.64%  1/6
+
+  red:{
+    flex:1, 
+    backgroundColor:'red',
+  },
+  green:{
+    flex:2,
+    backgroundColor:'green',
+  },
+  blue:{
+    flex:3,
+    backgroundColor:'blue',
+  },
+
+
+f. 
+    Propiedades de flex
+
+flexDirection
+   'row' | 'row-reverse'
+   'column' | 'column-reverse'
+
+container: {
+    flex: 1,
+    flexDirection:'row',
+    backgroundColor:'#fff',
+
+
+quitamos los flex de cada color y dejamos el flex en column
+
+
+justifyContent =  alineacion arriba abajo
+
+    justifyContent: 'center',
+    justifyContent: 'flex-start',
+    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
+    justifyContent: 'space-around',
+    justifyContent: 'space-evely', el mismo para todoslos comp
+
+alignItems = alineacion izq derecha
+
+    alignItems: 'flex-start',
+    alignItems: 'center',
+    alignItems: 'flex-end',
+    alignItems: 'strech ',   : usa todo lo disponible quitar H:W
+    alignItems: 'baseline ', 
