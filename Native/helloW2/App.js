@@ -1,44 +1,41 @@
-import React,{useState} from 'react';
-import { StyleSheet, Text, View, FlatList, SectionList} from 'react-native';
+import React,{useState, useEffect} from 'react';
+import { StyleSheet, Text, View, FlatList,ActivityIndicator} from 'react-native';
 
 export default function App() {
+
+    const [users, setUsers]= useState([])
+    const [loading,setLoading]= useState(true)
+
+    useEffect(()=>{
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(reponse=> reponse.json())
+        .then( data=>{ setUsers(data); setLoading(false)    })
+    },[])
+
+    if(loading){
+        return <View style={styles.center}> 
+            <ActivityIndicator size="large" color="#0000ff"/>      
+            <Text>Cargando</Text> 
+        
+        </View>
+    }
+
   return (
     <View style={styles.container}>
-
-      <SectionList
-        sections={[
-          {title:'Grupo A',
-           data:[
-            {key:'1',name:'Ivan Isay'}, 
-            {key:'2',name:'Naomi Guerra'}, 
-            {key:'3',name:'Reyna Martinez'}, 
-            {key:'4',name:'Ana Lopez'}, ]
-          },
-          {title:'Grupo B',
-            data:[
-             {key:'5',name:'Ivan Isay'}, 
-             {key:'6',name:'Naomi Guerra'}, 
-             {key:'7',name:'Reyna Martinez'}, 
-             {key:'8',name:'Ana Lopez'}, ]
-           },
-           {title:'Grupo C',
-            data:[
-             {key:'9',name:'Ivan Isay'}, 
-             {key:'10',name:'Naomi Guerra'}, 
-             {key:'11',name:'Reyna Martinez'}, 
-             {key:'12',name:'Ana Lopez'}, ]
-           },
-        ]}
-        renderItem={  ({item})=> <Text style={styles.item}> {item.name}  </Text>  }
-        renderSectionHeader={ ({section})=> <Text style={styles.section} > {section.title}  </Text>}
-      />
-
+      <FlatList 
+        data={users}
+        renderItem={ ({item})=><Text style={styles.item}> {item.id} {item.username}  </Text> } 
+      />  
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-
+center:{
+flex:1,
+alignItems:'center',
+justifyContent:'center',
+},
   container: {
     flex: 1,
     backgroundColor:'#fff',
