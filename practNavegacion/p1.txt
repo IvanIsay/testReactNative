@@ -1,0 +1,71 @@
+Prepara proyecto
+
+1. Install the required packages in your React Native project:
+ npm install @react-navigation/native
+  Instalacion NAVEGACION STACK
+    npm install @react-navigation/stack
+
+
+2. Crear proyecto BLANK navegacionSTACK
+    npx create-expo-app --template
+
+3. Instalar dependencias dentro de navegacionStack
+    cd navegacionSTACK
+    npx expo install react-native-screens react-native-safe-area-context
+    npx expo install react-navigation
+
+
+5. Gesture handler
+    npx expo install react-native-gesture-handler
+
+6. UIKit style
+    npx expo install @react-native-masked-view/masked-view
+
+
+Ejemplo: 
+
+
+import * as React from 'react';
+import { Button, View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+function HomeScreen({navigation}) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Screen</Text>
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('Detalle')}
+      />
+    </View>
+  );
+}
+
+function DetalleScreen({navigation}) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text> Soy Detalle </Text>
+      {/* <Button title="Go back" onPress={() => navigation.goBack()} /> */}
+      <Button
+        title="Go to Details... again"
+        onPress={() => navigation.push('Detalle')}
+      />
+    </View>
+  );
+}
+
+const Stack = createNativeStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home"    component={HomeScreen} />
+        <Stack.Screen name="Detalle" component={DetalleScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;
